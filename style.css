@@ -18,7 +18,8 @@ body {
 
 .main {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .container {
@@ -27,6 +28,7 @@ body {
     border: 2px solid rgb(204, 204, 204);
     height: 450px;
     width: 450px;
+    margin-right: 25%;
 }
 
 .grid {
@@ -37,4 +39,10 @@ body {
 
 .grid:onClick {
     background-color: blue;
+}
+
+.color{
+    font-size: 20px;
+    font-weight: bolder;
+    color: rgb(79, 20, 189);
 }
