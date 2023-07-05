@@ -1,33 +1,40 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-.title{
-    font-size: 80px;
-    text-align: center;
-    padding: 30px 0px;
-    color: rgb(75, 19, 180);
+body {
+    background-color: rgb(221, 220, 220);
 }
 
-.main{
+.title {
+    font-size: 80px;
+    text-align: center;
+    padding: 15px 0px;
+    color: rgb(79, 20, 189);
+    border-bottom: 2px solid rgb(172, 170, 170);
+    margin-bottom: 30px;
+}
+
+.main {
     display: flex;
     justify-content: center;
 }
-.container{
+
+.container {
     display: flex;
     flex-wrap: wrap;
-    border: 2px solid black;
+    border: 2px solid rgb(204, 204, 204);
     height: 450px;
     width: 450px;
 }
 
-.grid{
-    background-color:red;
+.grid {
+    background-color: white;
     height: 112.5px;
     width: 112.5px;
 }
 
-.grid:onClick{
+.grid:onClick {
     background-color: blue;
 }
