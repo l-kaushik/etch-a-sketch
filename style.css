@@ -23,7 +23,11 @@
 }
 
 .grid{
-    background-color:white;
+    background-color:red;
     height: 112.5px;
     width: 112.5px;
+}
+
+.grid:onClick{
+    background-color: blue;
 }
