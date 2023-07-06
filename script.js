@@ -92,6 +92,10 @@ clearButton.addEventListener("click", () => {
 
 
 gridUpdate.addEventListener("change", () => {
+    if(gridUpdate.value < 1 || gridUpdate.value > 64){
+        alert("Value must be between 1 to 64");
+        return;
+    }
     grid_resolution = gridUpdate.value;
     createGrid();
 });
