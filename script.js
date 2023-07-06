@@ -84,9 +84,7 @@ clearButton.addEventListener("click", () => {
     clearButton.style.color = "rgb(221, 220, 220)";
     clearButton.style.border = "1px solid rgb(221, 220, 220)";
 
-    gridElements.forEach((gridElement, index) => {
-        gridElement.style.backgroundColor = "white";
-    });
+    createGrid();
 
 });
 

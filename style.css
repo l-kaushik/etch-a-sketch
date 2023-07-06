@@ -88,3 +88,13 @@ body {
     border: 1px solid rg(79, 20, 189);
     border-radius: 5px;
 }
+
+.footer {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 20px;
+    color: rgb(79, 20, 189)
+}
