@@ -47,7 +47,16 @@ body {
     color: rgb(79, 20, 189);
 }
 
-.eraser{
+.settings{
+    display: flex;
+    width: 200px;
+    gap: 16px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.eraser, .random, .clear{
     position: relative;
     z-index: 10;
     font-size: 18px;
@@ -59,7 +68,9 @@ body {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.eraser:hover{
+.eraser:hover,
+.random:hover,
+.clear:hover{
     transform: scale(1.01);
     box-shadow:  0 0 10px rgba(79, 20, 189, 0.5);;
 }
