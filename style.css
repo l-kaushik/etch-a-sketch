@@ -74,3 +74,17 @@ body {
     transform: scale(1.01);
     box-shadow:  0 0 10px rgba(79, 20, 189, 0.5);;
 }
+
+.gridSetter{
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(79, 20, 189);
+    display: flex;
+    justify-content: space-around;
+}
+
+.gridInput{
+    text-align: center;
+    border: 1px solid rg(79, 20, 189);
+    border-radius: 5px;
+}

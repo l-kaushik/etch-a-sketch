@@ -4,50 +4,61 @@ const colorPicker = document.getElementById("colorPicker");
 const eraser = document.querySelector(".eraser");
 const randomColor = document.querySelector(".random");
 const clearButton = document.querySelector(".clear");
+const gridUpdate = document.querySelector(".gridInput");
 
 let color = "#000000";
-let grid_resolution = 20;
 
-style.textContent = `
-    .grid{
-        height: ${450/grid_resolution}px;
-        width: ${450/grid_resolution}px;
+let grid_resolution = 8;
+
+function createGrid() {
+    // Remove existing grid elements
+    container.innerHTML = '';
+  
+    // Update grid style
+    const style = document.createElement("style");
+    style.textContent = `
+      .grid {
+        height: ${450 / grid_resolution}px;
+        width: ${450 / grid_resolution}px;
+      }
+    `;
+    document.head.appendChild(style);
+  
+    // Create new grid elements
+    for (let i = 0; i < grid_resolution * grid_resolution; i++) {
+      let temp_grid = document.createElement("div");
+      container.appendChild(temp_grid);
+      temp_grid.classList.add(`grid`);
+      temp_grid.classList.add(`grid-${i + 1}`);
     }
-`;
-
-document.head.appendChild(style);
-
-for(let i = 0; i<grid_resolution*grid_resolution; i++){
-    let temp_grid = document.createElement("div"); 
-    container.appendChild(temp_grid);
-    temp_grid.classList.add(`grid`);
-    temp_grid.classList.add(`grid-${i+1}`);
-}
-
-const gridElements = document.querySelectorAll(".grid");
-
-gridElements.forEach((gridElement,index)=>{
-    gridElement.addEventListener("mousemove",(e)=>{
-        if(e.buttons == 1){
-            gridElement.style.backgroundColor = color;
+  
+    // Update event listeners for the new grid elements
+    const gridElements = document.querySelectorAll(".grid");
+    gridElements.forEach((gridElement, index) => {
+      gridElement.addEventListener("mousemove", (e) => {
+        if (e.buttons == 1) {
+          gridElement.style.backgroundColor = color;
         }
+      });
     });
-});
+}
 
+// initial load
+createGrid();
 
-function randColor(){
-   return Math.floor(Math.random() * 256);
+function randColor() {
+    return Math.floor(Math.random() * 256);
 }
 
 
-colorPicker.addEventListener("change", (e)=>{
+colorPicker.addEventListener("change", (e) => {
     color = colorPicker.value;
     clearButton.removeAttribute("style");
     randomColor.removeAttribute("style");
     eraser.removeAttribute("style");
 });
 
-eraser.addEventListener("click", ()=>{
+eraser.addEventListener("click", () => {
     clearButton.removeAttribute("style");
     randomColor.removeAttribute("style");
     eraser.style.backgroundColor = "rgb(79, 20, 189)";
@@ -56,7 +67,7 @@ eraser.addEventListener("click", ()=>{
     color = "white";
 });
 
-randomColor.addEventListener("click", ()=>{
+randomColor.addEventListener("click", () => {
     eraser.removeAttribute("style");
     clearButton.removeAttribute("style");
     randomColor.style.color = "rgb(221, 220, 220)";
@@ -66,15 +77,22 @@ randomColor.addEventListener("click", ()=>{
 });
 
 
-clearButton.addEventListener("click",()=>{
+clearButton.addEventListener("click", () => {
     eraser.removeAttribute("style");
     randomColor.removeAttribute("style");
     clearButton.style.backgroundColor = "rgb(79, 20, 189)";
     clearButton.style.color = "rgb(221, 220, 220)";
     clearButton.style.border = "1px solid rgb(221, 220, 220)";
 
-    gridElements.forEach((gridElement,index)=>{
+    gridElements.forEach((gridElement, index) => {
         gridElement.style.backgroundColor = "white";
     });
 
 });
+
+
+gridUpdate.addEventListener("change", () => {
+    grid_resolution = gridUpdate.value;
+    createGrid();
+});
+
