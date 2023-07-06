@@ -1,6 +1,7 @@
 const container = document.querySelector(".container");
 const style = document.createElement("style");
 const colorPicker = document.getElementById("colorPicker");
+const eraser = document.querySelector(".eraser");
 
 let color = "#000000";
 let grid_resolution = 20;
@@ -34,4 +35,11 @@ gridElements.forEach((gridElement,index)=>{
 
 colorPicker.addEventListener("change", (e)=>{
     color = colorPicker.value;
+})
+
+eraser.addEventListener("click", (e)=>{
+    eraser.style.backgroundColor = "rgb(79, 20, 189)";
+    eraser.style.color = "rgb(221, 220, 220)";
+    eraser.style.border = "1px solid rgb(221, 220, 220)";
+    color = "white";
 })
